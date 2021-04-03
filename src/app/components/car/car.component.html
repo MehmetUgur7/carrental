@@ -31,6 +31,7 @@
       <th>Günlük Fiyat</th>
       <th>KDV'li Günlük Fiyat</th>
       <th>Açıklama</th>
+      <th></th>
     </tr>
   </thead>
   <tr *ngFor="let car of cars | filterPipe:filterText">
@@ -41,5 +42,6 @@
     <td>{{ car.dailyPrice | currency }}</td>
     <td>{{ car.dailyPrice | vatAdded: 18 | currency }}</td>
     <td>{{ car.descriptions }}</td>
+    <td><button (click)="addToCart(car)" type="button" class="btn btn-success">Ekle</button></td>
   </tr>
 </table>
