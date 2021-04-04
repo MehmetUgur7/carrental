@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-car',
@@ -18,7 +19,8 @@ export class CarComponent implements OnInit {
 
   constructor(private carService:CarService, 
     private activatedRoute:ActivatedRoute,
-    private toastrService:ToastrService) {}
+    private toastrService:ToastrService,
+    private cartService:CartService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -48,5 +50,6 @@ export class CarComponent implements OnInit {
 
   addToCart(car:Car){
     this.toastrService.success("Eklendi", car.descriptions);
+    this.cartService.addToCart(car);
   }
 }
