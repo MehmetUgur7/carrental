@@ -51,5 +51,6 @@ export class CarComponent implements OnInit {
   addToCart(car:Car){
     this.toastrService.success("Eklendi", car.descriptions);
     this.cartService.addToCart(car);
+    //console.log(car);
   }
 }

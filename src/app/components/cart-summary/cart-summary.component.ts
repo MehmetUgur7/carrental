@@ -11,7 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartSummaryComponent implements OnInit {
 
-  cartItems:CartItem[]=[];
+  cartItems:CartItem[];
 
   constructor(private cartService:CartService, private toastrService:ToastrService) { }
 
